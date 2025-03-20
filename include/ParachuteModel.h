@@ -3,14 +3,17 @@
 
 #include <QString>
 #include <vector>
+#include <QObject>  // ✅ Needed for signals
 
-class ParachuteModel {
+class ParachuteModel : public QObject {
+    Q_OBJECT  // ✅ Make it a Qt Object to use signals
+
 public:
     ParachuteModel(int sectors, int tracks);
-    
+
     void setMessage(const QString& message);
     QString getBinaryMessage() const;
-    
+
     int getSectors() const;
     int getTracks() const;
     void setSectors(int sectors);
@@ -18,12 +21,15 @@ public:
 
     std::vector<int> getBinaryMap() const;
 
+signals:
+    void binaryMapChanged();  // ✅ Signal to update the parachute view
+
 private:
     int S, T;
     QString binaryMessage;
     std::vector<int> binaryMap;
-    
-    QString encodeMessage(const QString& message);
+
+    void encodeMessage(const QString& message);  // ✅ Now a `void` function
 };
 
 #endif // PARACHUTEMODEL_H

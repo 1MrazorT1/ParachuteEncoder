@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <!-- Window properties -->
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>948</width>
+    <height>875</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Parachute Encoder</string>
+  </property>
+
+  <!-- Central Widget -->
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+
+    <!-- Message GroupBox -->
+    <item>
+     <widget class="QGroupBox" name="messageBox">
+      <property name="title">
+       <string>Message</string>
+      </property>
+      <layout class="QVBoxLayout" name="messageLayout">
+       <item>
+        <widget class="QLabel" name="labelMessage">
+         <property name="text">
+          <string>Enter Message:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="messageInput"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+
+    <!-- Parachute Settings GroupBox -->
+    <item>
+     <widget class="QGroupBox" name="settingsBox">
+      <property name="title">
+       <string>Parachute Settings</string>
+      </property>
+      <layout class="QGridLayout" name="settingsLayout">
+
+       <!-- Sectors -->
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelSectors">
+         <property name="text">
+          <string>Sectors:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSlider" name="sliderSectors">
+         <property name="minimum">
+          <number>7</number>
+         </property>
+         <property name="maximum">
+          <number>42</number>
+         </property>
+         <property name="value">
+          <number>21</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QSpinBox" name="spinSectors">
+         <property name="minimum">
+          <number>7</number>
+         </property>
+         <property name="maximum">
+          <number>42</number>
+         </property>
+         <property name="value">
+          <number>21</number>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Tracks -->
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelTracks">
+         <property name="text">
+          <string>Tracks:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSlider" name="sliderTracks">
+         <property name="minimum">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <number>10</number>
+         </property>
+         <property name="value">
+          <number>5</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QSpinBox" name="spinTracks">
+         <property name="minimum">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <number>10</number>
+         </property>
+         <property name="value">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+    <!-- Toggle View Button -->
+    <item>
+     <widget class="QPushButton" name="toggleViewButton">
+      <property name="text">
+       <string>Switch to Binary View</string>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Stacked Widget (Parachute / Binary) -->
+    <item>
+     <widget class="QStackedWidget" name="viewStack">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+
+      <!-- Parachute Page -->
+      <widget class="QWidget" name="parachutePage">
+       <layout class="QVBoxLayout" name="verticalLayout_parachute">
+        <item>
+         <widget class="QGraphicsView" name="parachuteView">
+          <property name="minimumSize">
+           <size>
+            <width>600</width>
+            <height>400</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+
+      <!-- Binary Page -->
+      <widget class="QWidget" name="binaryPage">
+       <layout class="QVBoxLayout" name="verticalLayout_binary">
+        <item>
+         <widget class="QTextEdit" name="binaryView">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="styleSheet">
+           <string>
+            <![CDATA[
+            QTextEdit {
+              font-size: 14px;
+              color: white;
+              background-color: #333;
+              border-radius: 5px;
+            }
+            ]]>
+           </string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+
+    <!-- Color Button -->
+    <item>
+     <widget class="QPushButton" name="colorButton">
+      <property name="text">
+       <string>Choose Color</string>
+      </property>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+
+  <!-- Menu Bar -->
+  <widget class="QMenuBar" name="menubar"/>
+  <!-- Status Bar -->
+  <widget class="QStatusBar" name="statusbar"/>
+
+  <!-- Tell QMainWindow which widgets are menuBar, statusBar, and centralWidget -->
+  
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

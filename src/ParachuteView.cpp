@@ -41,7 +41,7 @@ void ParachuteView::paintEvent(QPaintEvent*)
             QColor fillColor = Qt::white;
             if (k < (int)binaryMap.size()) {
                 // We still have data
-                fillColor = (binaryMap[k] == 1) ? Qt::red : Qt::white;
+                fillColor = (binaryMap[k] == 1) ? parachuteColor : Qt::white;
             }
 
             // Angles for this sector
@@ -53,10 +53,10 @@ void ParachuteView::paintEvent(QPaintEvent*)
             double r_q = (double)(t + 1) / T * R; // outer radius
 
             // Compute trapezoid corners
-            QPointF p1(r_p * cos(a1) + width / 2,  r_p * sin(a1) + height / 2);
-            QPointF p2(r_p * cos(a2) + width / 2,  r_p * sin(a2) + height / 2);
-            QPointF q1(r_q * cos(a1) + width / 2,  r_q * sin(a1) + height / 2);
-            QPointF q2(r_q * cos(a2) + width / 2,  r_q * sin(a2) + height / 2);
+            QPointF p1((int)(r_p * cos(a1) + width / 2),  (int)(r_p * sin(a1) + height / 2));
+            QPointF p2((int)(r_p * cos(a2) + width / 2),  (int)(r_p * sin(a2) + height / 2));
+            QPointF q1((int)(r_q * cos(a1) + width / 2),  (int)(r_q * sin(a1) + height / 2));
+            QPointF q2((int)(r_q * cos(a2) + width / 2),  (int)(r_q * sin(a2) + height / 2));
 
             // Draw the trapezoid as a path
             QPainterPath path;
@@ -72,4 +72,6 @@ void ParachuteView::paintEvent(QPaintEvent*)
             painter.drawPath(path);
         }
     }
+
+    
 }

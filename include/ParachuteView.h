@@ -12,12 +12,14 @@ class ParachuteView : public QWidget {
 
 public:
     explicit ParachuteView(ParachuteModel* model, QWidget* parent = nullptr);
+    void setParachuteColor(const QColor& color) { parachuteColor = color; }
 
 protected:
     void paintEvent(QPaintEvent* event) override;
 
 private:
     ParachuteModel* model = nullptr;
+    QColor parachuteColor = Qt::red;
 };
 
 #endif // PARACHUTEVIEW_H
