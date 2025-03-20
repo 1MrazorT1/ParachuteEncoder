@@ -1,0 +1,4 @@
+#ifndef SETTINGSMANAGER_H
+#define SETTINGSMANAGER_H
+
+#endif
