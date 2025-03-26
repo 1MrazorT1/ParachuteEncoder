@@ -2,4 +2,7 @@
   <qresource prefix="/">
     <file alias="parachute_fr.qm">translations/parachute_fr.qm</file>
   </qresource>
+  <qresource prefix="/">
+    <file>src/style.qss</file>
+  </qresource>
 </RCC>

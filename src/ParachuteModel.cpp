@@ -38,5 +38,4 @@ void ParachuteModel::encodeMessage(const QString& message) {
             binaryMessage += bit;
         }
     }
-    qDebug() << "Binary message size:" << binaryMap.size();
 }
