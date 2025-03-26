@@ -9,6 +9,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QGraphicsEllipseItem>
+#include "ui_parachute.h"
 
 ParachuteController::ParachuteController(QWidget* parent)
     : QMainWindow(parent),
@@ -39,10 +40,18 @@ ParachuteController::ParachuteController(QWidget* parent)
     connect(ui->sliderTracks, &QSlider::valueChanged, this, &ParachuteController::updateTracksFromSlider);
     connect(ui->spinTracks, QOverload<int>::of(&QSpinBox::valueChanged),this, &ParachuteController::updateTracksFromSpinBox);
     connect(ui->colorButton, &QPushButton::clicked, this, &ParachuteController::chooseColor);
+    connect(ui->parachuteColorButton, &QPushButton::clicked, this, &ParachuteController::chooseParachuteColor);
     connect(ui->messageInput, &QLineEdit::textChanged, [&](const QString& text) {model.setMessage(text);});
     connect(&model, &ParachuteModel::binaryMapChanged, this, &ParachuteController::updateParachute);
     connect(ui->toggleViewButton, &QPushButton::clicked, this, &ParachuteController::toggleView);
     connect(ui->messageInput, &QLineEdit::textChanged, this, &ParachuteController::updateBinaryView);
+    connect(ui->lineEditRefChar, &QLineEdit::textChanged, this, [this](const QString &text) {
+        if (!text.isEmpty()) {
+            model.setReferenceChar(text[0]);
+            model.setMessage(ui->messageInput->text()); // Re-encode
+        }
+    });
+    
 
     QMenu *fileMenu = menuBar()->addMenu("&File");
     QAction *openAction = new QAction("&Open...", this);
@@ -109,9 +118,18 @@ void ParachuteController::updateTracksFromSpinBox(int value)
 
 void ParachuteController::chooseColor()
 {
-    QColor color = QColorDialog::getColor(parachuteColor, this, tr("Select Parachute Color"));
+    QColor color = QColorDialog::getColor(parachuteColor, this, tr("Select Color"));
     if (color.isValid()) {
         parachuteColor = color;
+        drawParachute();
+    }
+}
+
+void ParachuteController::chooseParachuteColor()
+{
+    QColor color = QColorDialog::getColor(outerColor, this, tr("Select Parachute Color"));
+    if (color.isValid()) {
+        outerColor = color;
         drawParachute();
     }
 }
@@ -124,15 +142,15 @@ void ParachuteController::drawParachute()
     int tracks = ui->spinTracks->value();
     int R = 200;
     QPen pen(Qt::black);
-    QBrush defaultBrush(Qt::white);
+    QBrush defaultBrush(outerColor);
     std::vector<int> binaryMap = model.getBinaryMap();
     bool hasData = !binaryMap.empty();
     for (int t = 0; t < tracks; ++t) {
         for (int s = 0; s < sectors; ++s) {
             int index = t * sectors + s;
-            QColor fillColor = Qt::white;
+            QColor fillColor = outerColor;
             if (hasData && index < (int)binaryMap.size()) {
-                fillColor = (binaryMap[index] == 1) ? parachuteColor : Qt::white;
+                fillColor = (binaryMap[index] == 1) ? parachuteColor : outerColor;
             }
             double a1 = s * (2 * M_PI / sectors);
             double a2 = (s + 1) * (2 * M_PI / sectors);

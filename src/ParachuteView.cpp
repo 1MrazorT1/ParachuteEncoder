@@ -28,9 +28,9 @@ void ParachuteView::paintEvent(QPaintEvent*)
     for (int t = 0; t < T; ++t) {
         for (int s = 0; s < S; ++s) {
             int k = t * S + s;
-            QColor fillColor = Qt::white;
+            QColor fillColor = outerColor;
             if (k < (int)binaryMap.size()) {
-                fillColor = (binaryMap[k] == 1) ? parachuteColor : Qt::white;
+                fillColor = (binaryMap[k] == 1) ? parachuteColor : outerColor;
             }
             double a1 = s * a_c;
             double a2 = (s + 1) * a_c;

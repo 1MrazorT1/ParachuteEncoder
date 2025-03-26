@@ -1,3 +1,4 @@
+/* ======= GLOBAL FONT & BACKGROUND ======= */
 * {
     font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
     font-size: 14px;
@@ -8,13 +9,13 @@ QMainWindow, QWidget {
     color: #eeeeee;
 }
 
+/* ======= GROUP BOXES ======= */
 QGroupBox {
     border: 1px solid #2c2c2c;
     border-radius: 6px;
     margin-top: 10px;
     background-color: #1a1a1a;
 }
-
 QGroupBox::title {
     subcontrol-origin: margin;
     subcontrol-position: top left;
@@ -23,10 +24,12 @@ QGroupBox::title {
     font-weight: bold;
 }
 
+/* ======= LABELS ======= */
 QLabel {
     color: #eeeeee;
 }
 
+/* ======= LINE EDIT & SPIN BOX ======= */
 QLineEdit, QSpinBox {
     background-color: #1f1f1f;
     border: 1px solid #444;
@@ -34,28 +37,26 @@ QLineEdit, QSpinBox {
     padding: 4px;
     color: #ffffff;
 }
-
-QLineEdit:focus, QSpinBox:focus {
+QLineEdit:focus,
+QSpinBox:focus {
     border: 1px solid #990000;
 }
 
+/* ======= SLIDERS ======= */
 QSlider::groove:horizontal {
     background: #2c2c2c;
     border: 1px solid #444;
     height: 6px;
     border-radius: 3px;
 }
-
 QSlider::sub-page:horizontal {
-    background: #990000;
+    background: #990000; /* Red fill before handle */
     border-radius: 3px;
 }
-
 QSlider::add-page:horizontal {
-    background: #1f1f1f;
+    background: #1f1f1f; /* Dark color after handle */
     border-radius: 3px;
 }
-
 QSlider::handle:horizontal {
     background: #660000;
     border: none;
@@ -63,15 +64,14 @@ QSlider::handle:horizontal {
     margin: -4px 0;
     border-radius: 7px;
 }
-
 QSlider::handle:horizontal:hover {
     background: #770000;
 }
-
 QSlider::handle:horizontal:pressed {
     background: #880000;
 }
 
+/* ======= PUSH BUTTONS (default style) ======= */
 QPushButton {
     background-color: #660000;
     color: #ffffff;
@@ -79,82 +79,90 @@ QPushButton {
     border-radius: 4px;
     padding: 6px 12px;
 }
-
 QPushButton:hover {
     background-color: #770000;
 }
-
 QPushButton:pressed {
     background-color: #880000;
-    color: #ffffff;
 }
 
+/* ======= SPECIAL BUTTONS BY OBJECT NAME ======= */
 #colorButton {
     background-color: #660000;
     color: #ffffff;
     font-weight: bold;
 }
-
 #colorButton:hover {
     background-color: #770000;
 }
-
 #colorButton:pressed {
     background-color: #880000;
 }
 
+/* Nouvel ID : parachuteColorButton (mêmes règles) */
+#parachuteColorButton {
+    background-color: #660000;
+    color: #ffffff;
+    font-weight: bold;
+}
+#parachuteColorButton:hover {
+    background-color: #770000;
+}
+#parachuteColorButton:pressed {
+    background-color: #880000;
+}
+
+/* ======= GRAPHICS VIEWS ======= */
 QGraphicsView {
     background-color: #1a1a1a;
     border: 1px solid #444;
     border-radius: 4px;
 }
 
+/* ======= MENU BAR & MENU ITEMS ======= */
 QMenuBar {
     background-color: #121212;
     color: #ffffff;
 }
-
 QMenuBar::item {
     background: transparent;
     padding: 4px 10px;
 }
-
 QMenuBar::item:selected {
     background: #2c2c2c;
     color: #990000;
 }
 
+/* ======= STATUS BAR ======= */
 QStatusBar {
     background-color: #121212;
     color: #aaaaaa;
     border-top: 1px solid #444;
 }
 
+/* ======= SCROLLBARS (vertical) ======= */
 QScrollBar:vertical {
     border: none;
     background: #2c2c2c;
     width: 10px;
     margin: 0;
 }
-
 QScrollBar::handle:vertical {
     background: #660000;
     border-radius: 5px;
 }
-
 QScrollBar::handle:vertical:hover {
     background: #770000;
 }
-
 QScrollBar::handle:vertical:pressed {
     background: #880000;
 }
-
 QScrollBar::add-line:vertical,
 QScrollBar::sub-line:vertical {
     background: none;
 }
 
+/* ======= TOOLTIP ======= */
 QToolTip {
     background-color: #2c2c2c;
     color: #ffffff;

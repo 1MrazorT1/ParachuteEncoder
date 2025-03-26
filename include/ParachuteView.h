@@ -20,6 +20,7 @@ protected:
 private:
     ParachuteModel* model = nullptr;
     QColor parachuteColor = Qt::red;
+    QColor outerColor = Qt::white;
 };
 
 #endif // PARACHUTEVIEW_H

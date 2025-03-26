@@ -21,6 +21,10 @@ std::vector<int> ParachuteModel::getBinaryMap() const {
     return binaryMap;
 }
 
+void ParachuteModel::setReferenceChar(QChar ref) { referenceChar = ref; }
+
+QChar ParachuteModel::getReferenceChar() const { return referenceChar; }
+
 void ParachuteModel::encodeMessage(const QString& message) {
     binaryMap.clear();
     binaryMessage.clear();
@@ -30,8 +34,10 @@ void ParachuteModel::encodeMessage(const QString& message) {
         binaryMessage = "";
         return;
     }
+    int offset = referenceChar.unicode();
     for (QChar c : message) {
-        int value = c.unicode() - 64;
+        int value = c.unicode() - offset;
+        if (value < 0) value = 0;
         QString binaryString = QString("%1").arg(value, 7, 2, QChar('0'));
         for (QChar bit : binaryString) {
             binaryMap.push_back(bit == '1' ? 1 : 0);

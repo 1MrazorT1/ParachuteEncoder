@@ -4,8 +4,13 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QTranslator>
-#include "ui_parachute.h"
+//#include "ui_parachute.h"
 #include "ParachuteModel.h"
+
+
+namespace Ui {
+    class MainWindow;  // <-- forward declaration
+}
 
 class ParachuteController : public QMainWindow {
     Q_OBJECT
@@ -20,6 +25,7 @@ private slots:
     void updateTracksFromSlider(int value);
     void updateTracksFromSpinBox(int value);
     void chooseColor();
+    void chooseParachuteColor();
     void updateParachute();
     void toggleView();
     void openFile();
@@ -33,6 +39,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QColor parachuteColor;
+    QColor outerColor = Qt::white;
     ParachuteModel model;
     QTranslator translatorFr;
     QTranslator translatorEn;

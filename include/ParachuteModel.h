@@ -17,6 +17,8 @@ public:
     void setSectors(int sectors);
     void setTracks(int tracks);
     std::vector<int> getBinaryMap() const;
+    void setReferenceChar(QChar ref);
+    QChar getReferenceChar() const;
 
 signals:
     void binaryMapChanged();
@@ -24,6 +26,7 @@ signals:
 private:
     int S, T;
     QString binaryMessage;
+    QChar referenceChar = '@';
     std::vector<int> binaryMap;
     void encodeMessage(const QString& message);
 };
