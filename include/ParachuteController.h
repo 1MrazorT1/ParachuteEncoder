@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include <QTranslator>
 #include "ui_parachute.h"
 #include "ParachuteModel.h"
 
@@ -21,17 +22,22 @@ private slots:
     void chooseColor();
     void updateParachute();
     void toggleView();
-    void updateBinaryView();
     void openFile();
     void saveFile();
     void onQuit();
     void showAboutDialog();
+    void switchToEnglish();
+    void switchToFrench();
+    void updateBinaryView();
 
 private:
     Ui::MainWindow *ui;
-    QGraphicsScene *scene;
     QColor parachuteColor;
     ParachuteModel model;
+    QTranslator translatorFr;
+    QTranslator translatorEn;
+    QGraphicsScene *scene;        
+    QGraphicsScene *binaryScene; 
     void drawParachute();
 };
 

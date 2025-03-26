@@ -23,7 +23,6 @@
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -53,7 +52,7 @@ public:
     QGraphicsView *parachuteView;
     QWidget *binaryPage;
     QVBoxLayout *verticalLayout_binary;
-    QTextEdit *binaryView;
+    QGraphicsView *binaryGraphicsView;
     QPushButton *colorButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -157,11 +156,10 @@ public:
         binaryPage->setObjectName(QString::fromUtf8("binaryPage"));
         verticalLayout_binary = new QVBoxLayout(binaryPage);
         verticalLayout_binary->setObjectName(QString::fromUtf8("verticalLayout_binary"));
-        binaryView = new QTextEdit(binaryPage);
-        binaryView->setObjectName(QString::fromUtf8("binaryView"));
-        binaryView->setReadOnly(true);
+        binaryGraphicsView = new QGraphicsView(binaryPage);
+        binaryGraphicsView->setObjectName(QString::fromUtf8("binaryGraphicsView"));
 
-        verticalLayout_binary->addWidget(binaryView);
+        verticalLayout_binary->addWidget(binaryGraphicsView);
 
         viewStack->addWidget(binaryPage);
 
@@ -197,14 +195,6 @@ public:
         labelSectors->setText(QCoreApplication::translate("MainWindow", "Sectors:", nullptr));
         labelTracks->setText(QCoreApplication::translate("MainWindow", "Tracks:", nullptr));
         toggleViewButton->setText(QCoreApplication::translate("MainWindow", "Switch to Binary View", nullptr));
-        binaryView->setStyleSheet(QCoreApplication::translate("MainWindow", "\n"
-"            QTextEdit {\n"
-"              font-size: 14px;\n"
-"              color: white;\n"
-"              background-color: #333;\n"
-"              border-radius: 5px;\n"
-"            }\n"
-"            ", nullptr));
         colorButton->setText(QCoreApplication::translate("MainWindow", "Choose Color", nullptr));
     } // retranslateUi
 

@@ -2,7 +2,6 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <!-- Window properties -->
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,12 +13,8 @@
   <property name="windowTitle">
    <string>Parachute Encoder</string>
   </property>
-
-  <!-- Central Widget -->
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
-
-    <!-- Message GroupBox -->
     <item>
      <widget class="QGroupBox" name="messageBox">
       <property name="title">
@@ -39,16 +34,12 @@
       </layout>
      </widget>
     </item>
-
-    <!-- Parachute Settings GroupBox -->
     <item>
      <widget class="QGroupBox" name="settingsBox">
       <property name="title">
        <string>Parachute Settings</string>
       </property>
       <layout class="QGridLayout" name="settingsLayout">
-
-       <!-- Sectors -->
        <item row="0" column="0">
         <widget class="QLabel" name="labelSectors">
          <property name="text">
@@ -85,8 +76,6 @@
          </property>
         </widget>
        </item>
-
-       <!-- Tracks -->
        <item row="1" column="0">
         <widget class="QLabel" name="labelTracks">
          <property name="text">
@@ -123,12 +112,9 @@
          </property>
         </widget>
        </item>
-
       </layout>
      </widget>
     </item>
-
-    <!-- Toggle View Button -->
     <item>
      <widget class="QPushButton" name="toggleViewButton">
       <property name="text">
@@ -136,15 +122,11 @@
       </property>
      </widget>
     </item>
-
-    <!-- Stacked Widget (Parachute / Binary) -->
     <item>
      <widget class="QStackedWidget" name="viewStack">
       <property name="currentIndex">
        <number>0</number>
       </property>
-
-      <!-- Parachute Page -->
       <widget class="QWidget" name="parachutePage">
        <layout class="QVBoxLayout" name="verticalLayout_parachute">
         <item>
@@ -159,13 +141,11 @@
         </item>
        </layout>
       </widget>
-
-      <!-- Binary Page -->
       <widget class="QWidget" name="binaryPage">
        <layout class="QVBoxLayout" name="verticalLayout_binary">
         <item>
-         <widget class="QTextEdit" name="binaryView">
-          <property name="readOnly">
+         <widget class="QGraphicsView" name="binaryGraphicsView">
+          <!-- <property name="readOnly">
            <bool>true</bool>
           </property>
           <property name="styleSheet">
@@ -179,15 +159,13 @@
             }
             ]]>
            </string>
-          </property>
+          </property> -->
          </widget>
         </item>
        </layout>
       </widget>
      </widget>
     </item>
-
-    <!-- Color Button -->
     <item>
      <widget class="QPushButton" name="colorButton">
       <property name="text">
@@ -195,17 +173,10 @@
       </property>
      </widget>
     </item>
-
    </layout>
   </widget>
-
-  <!-- Menu Bar -->
   <widget class="QMenuBar" name="menubar"/>
-  <!-- Status Bar -->
   <widget class="QStatusBar" name="statusbar"/>
-
-  <!-- Tell QMainWindow which widgets are menuBar, statusBar, and centralWidget -->
-  
  </widget>
  <resources/>
  <connections/>

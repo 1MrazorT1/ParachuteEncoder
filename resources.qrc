@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="parachute_fr.qm">translations/parachute_fr.qm</file>
+  </qresource>
+</RCC>

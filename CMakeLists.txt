@@ -6,13 +6,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
 
-
 set(CMAKE_AUTOMOC ON)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-
 set(SOURCES
     src/main.cpp
     src/ParachuteModel.cpp
@@ -26,6 +24,12 @@ set(HEADERS
     include/ParachuteController.h
 )
 
-add_executable(ParachuteEncoder ${SOURCES} ${HEADERS})
+qt5_add_resources(MY_QRC_SOURCES resources.qrc)
+
+add_executable(ParachuteEncoder
+    ${SOURCES}
+    ${HEADERS}
+    ${MY_QRC_SOURCES}
+)
 
 target_link_libraries(ParachuteEncoder Qt5::Widgets)

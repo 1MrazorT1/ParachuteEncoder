@@ -9,8 +9,8 @@ void ParachuteModel::setSectors(int sectors) { S = sectors; }
 void ParachuteModel::setTracks(int tracks) { T = tracks; }
 
 void ParachuteModel::setMessage(const QString& message) {
-    encodeMessage(message);  // ✅ Encode the message
-    emit binaryMapChanged(); // ✅ Notify UI that binary data changed
+    encodeMessage(message);
+    emit binaryMapChanged();
 }
 
 QString ParachuteModel::getBinaryMessage() const {
@@ -22,25 +22,21 @@ std::vector<int> ParachuteModel::getBinaryMap() const {
 }
 
 void ParachuteModel::encodeMessage(const QString& message) {
-    binaryMap.clear();  // ✅ Reset before filling
-    binaryMessage.clear(); // ✅ Also clear binaryMessage before refilling
-
+    binaryMap.clear();
+    binaryMessage.clear();
     if (message.isEmpty()) {
         qDebug() << "Error: Empty message. Cannot encode.";
-        binaryMap.assign(S * T, 0);  // Fill with zeros
+        binaryMap.assign(S * T, 0);
         binaryMessage = "";
         return;
     }
-
     for (QChar c : message) {
-        int value = c.unicode() - 64; // ASCII offset
+        int value = c.unicode() - 64;
         QString binaryString = QString("%1").arg(value, 7, 2, QChar('0'));
-
         for (QChar bit : binaryString) {
             binaryMap.push_back(bit == '1' ? 1 : 0);
             binaryMessage += bit;
         }
     }
-
     qDebug() << "Binary message size:" << binaryMap.size();
 }
