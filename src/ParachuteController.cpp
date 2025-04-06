@@ -48,7 +48,7 @@ ParachuteController::ParachuteController(QWidget* parent)
     connect(ui->lineEditRefChar, &QLineEdit::textChanged, this, [this](const QString &text) {
         if (!text.isEmpty()) {
             model.setReferenceChar(text[0]);
-            model.setMessage(ui->messageInput->text()); // Re-encode
+            model.setMessage(ui->messageInput->text());
         }
     });
     

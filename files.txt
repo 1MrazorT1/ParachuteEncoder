@@ -1,0 +1,16 @@
+CMakeLists.txt
+CMakeLists.txt.user
+README.md
+resources.qrc
+include/ParachuteController.h
+include/ParachuteModel.h
+include/ParachuteView.h
+include/ui_parachute.h
+src/ParachuteController.cpp
+src/ParachuteModel.cpp
+src/ParachuteView.cpp
+src/main.cpp
+src/parachute.ui
+src/style.qss
+translations/parachute_fr.qm
+translations/parachute_fr.ts

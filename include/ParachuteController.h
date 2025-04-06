@@ -9,7 +9,7 @@
 
 
 namespace Ui {
-    class MainWindow;  // <-- forward declaration
+    class MainWindow;
 }
 
 class ParachuteController : public QMainWindow {
